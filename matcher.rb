@@ -5,17 +5,6 @@ class Matcher
   def initialize(sequence)
     @sequence = sequence
 
-    # @starter  = [ '[', '{', '(']
-    # @ender    = [ ']', '}', ')']
-
-    # @set = {
-    #   '[': 0,
-    #   '{': 0,
-    #   '(': 0,
-    #   ']': 0,
-    #   '}': 0,
-    #   ')': 0
-    # }
     @set = {
       '[' => 0,
       '{' => 0,

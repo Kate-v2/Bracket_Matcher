@@ -27,14 +27,69 @@ class SnailTest < Minitest::Test
   end
 
 
+  # ---- Square -----
 
-  # def test_it_catches_missing_open_square_bracket
-  #   bad = "123]{a(b)}"
-  #   expected = false
-  #
-  #
-  #
-  # end
+  def test_it_catches_missing_open_square_bracket
+    bad      = "123]{a(b)}"
+    matcher  = Matcher.new(bad)
+    expected = false
+    actual   = matcher.assess
+    assert_equal(expected, actual)
+  end
+
+  def test_it_catches_missing_closing_square_bracket
+    bad      = "[123{a(b)}"
+    matcher  = Matcher.new(bad)
+    expected = false
+    actual   = matcher.assess
+    assert_equal(expected, actual)
+  end
+
+
+  # ---- Curly -----
+
+  def test_it_catches_missing_open_curly_bracket
+    bad      = "[123]a(b)}"
+    matcher  = Matcher.new(bad)
+    expected = false
+    actual   = matcher.assess
+    assert_equal(expected, actual)
+  end
+
+  def test_it_catches_missing_closing_curly_bracket
+    bad      = "[123]{a(b)"
+    matcher  = Matcher.new(bad)
+    expected = false
+    actual   = matcher.assess
+    assert_equal(expected, actual)
+  end
+
+
+  # ---- Parens -----
+
+  def test_it_catches_missing_open_paren_bracket
+    bad      = "[123]{ab)}"
+    matcher  = Matcher.new(bad)
+    expected = false
+    actual   = matcher.assess
+    assert_equal(expected, actual)
+  end
+
+  def test_it_catches_missing_closing_paren_bracket
+    bad      = "[123]{a(b}"
+    matcher  = Matcher.new(bad)
+    expected = false
+    actual   = matcher.assess
+    assert_equal(expected, actual)
+  end
+
+  def test_it_works_with_no_brackets
+    good     = "123ab"
+    matcher  = Matcher.new(good)
+    expected = true
+    actual   = matcher.assess
+    assert_equal(expected, actual)
+  end
 
 
 end
