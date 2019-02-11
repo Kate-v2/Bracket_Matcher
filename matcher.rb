@@ -13,8 +13,6 @@ class Matcher
       '}' => 0,
       ')' => 0
     }
-
-
   end
 
   # returns T /  F
