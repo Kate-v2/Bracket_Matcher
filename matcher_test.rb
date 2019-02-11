@@ -83,10 +83,24 @@ class SnailTest < Minitest::Test
     assert_equal(expected, actual)
   end
 
+
+  # ---- None -----
+
   def test_it_works_with_no_brackets
     good     = "123ab"
     matcher  = Matcher.new(good)
     expected = true
+    actual   = matcher.assess
+    assert_equal(expected, actual)
+  end
+
+
+  # ---- Mixed -----
+
+  def test_it_works_with_unmatched_and_mixed_brackets
+    bad      = "{{{ ]]]"
+    matcher  = Matcher.new(bad)
+    expected = false
     actual   = matcher.assess
     assert_equal(expected, actual)
   end

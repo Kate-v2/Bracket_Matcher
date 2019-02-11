@@ -35,7 +35,7 @@ class Matcher
     b = @set[ '{' ] - @set[ '}' ]
     c = @set[ '(' ] - @set[ ')' ]
 
-    sum = [a, b, c].sum
+    sum = [a.abs, b.abs, c.abs].sum
     sum == 0 ? true : false
   end
 
