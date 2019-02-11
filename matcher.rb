@@ -8,13 +8,21 @@ class Matcher
     # @starter  = [ '[', '{', '(']
     # @ender    = [ ']', '}', ')']
 
+    # @set = {
+    #   '[': 0,
+    #   '{': 0,
+    #   '(': 0,
+    #   ']': 0,
+    #   '}': 0,
+    #   ')': 0
+    # }
     @set = {
-      '[': 0,
-      '{': 0,
-      '(': 0,
-      ']': 0,
-      '}': 0,
-      ')': 0
+      '[' => 0,
+      '{' => 0,
+      '(' => 0,
+      ']' => 0,
+      '}' => 0,
+      ')' => 0
     }
 
 
@@ -24,7 +32,7 @@ class Matcher
 
   def assess
     count_brackets
-    puts compare_brackets
+    compare_brackets
   end
 
 
